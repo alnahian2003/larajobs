@@ -20,3 +20,10 @@ Route::get('jobs', function () {
         'jobs' => Job::all(),
     ]);
 });
+
+Route::get('jobs/{job}', function (Job $job) {
+    return view('single_job', [
+        'title' => $job->title,
+        'job' => $job,
+    ]);
+});
