@@ -12,7 +12,10 @@
     <h3 class="my-6 text-3xl font-semibold text-gray-400">No Jobs Available</h3>    
     @endforelse
 </div>
+
+{{-- Pagination --}}
 <div class="my-8 mx-6">
     {{ $jobs->links() }}
 </div>
+
 </x-layout>
