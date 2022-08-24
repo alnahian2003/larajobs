@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{$title ?? "Larajobs — Job Listing Platform Based in Dhaka"}}</title>
-    <link rel="icon" href="images/favicon.ico" />
+    <link rel="icon" href="{{asset('images/larajobs-logo.svg')}}" />
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -33,6 +33,12 @@
             ><img class="w-24" src="{{ asset('images/larajobs-trans.svg') }}" alt="Larajobs" class="logo"
         /></a>
         <ul class="flex space-x-6 mr-6 text-lg">
+
+            <li>
+                <a href="{{route('jobs.index')}}" class="hover:text-laravel">Jobs</a>
+            </li>
+
+            @guest
             <li>
                 <a href="register.html" class="hover:text-laravel"
                     ><i class="fa-solid fa-user-plus"></i> Register</a
@@ -44,6 +50,7 @@
                     Login</a
                 >
             </li>
+            @endguest
         </ul>
     </nav>
 

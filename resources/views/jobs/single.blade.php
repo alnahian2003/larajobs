@@ -2,7 +2,7 @@
 
 @include('partials._search_form')
 
-<a href="/jobs" class="inline-block text-black ml-4 mb-4"
+<a href="{{route('jobs.index')}}" class="inline-block text-black ml-4 mb-4"
                 ><i class="fa-solid fa-arrow-left"></i> Back
             </a>
             <div class="mx-4">

@@ -15,4 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Temporary Homepage Route
+Route::get('/', [JobController::class, 'index']);
+
 Route::resource("jobs", JobController::class);

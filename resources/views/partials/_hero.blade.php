@@ -4,7 +4,6 @@ class="relative h-72 bg-laravel flex flex-col justify-center align-center text-c
 >
 <div
     class="absolute top-0 left-0 w-full h-full opacity-10 bg-no-repeat bg-center"
-    style="background-image: url({{asset('images/larajobs-trans.svg')}})"
 ></div>
 
 <div class="z-10">
@@ -14,6 +13,7 @@ class="relative h-72 bg-laravel flex flex-col justify-center align-center text-c
     <p class="text-2xl text-gray-200 font-bold my-4">
         Find or post jobs & projects
     </p>
+    @guest
     <div>
         <a
             href="register.html"
@@ -21,5 +21,6 @@ class="relative h-72 bg-laravel flex flex-col justify-center align-center text-c
             >Sign Up Now!</a
         >
     </div>
+    @endguest
 </div>
 </section>
