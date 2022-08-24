@@ -46,7 +46,7 @@ class JobController extends Controller
 
         Job::create($validated);
 
-        return redirect()->route('jobs.index');
+        return redirect()->route('jobs.index')->with('message', 'Job Posted Successfully!');
     }
 
     /**
