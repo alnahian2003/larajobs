@@ -14,7 +14,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        return view('all_jobs', [
+        return view('jobs.all', [
             'title' => 'All Jobs',
             'jobs' => Job::all(),
         ]);
@@ -49,7 +49,7 @@ class JobController extends Controller
      */
     public function show(Job $job)
     {
-        return view('single_job', [
+        return view('jobs.single', [
             'title' => $job->title,
             'job' => $job,
         ]);
