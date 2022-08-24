@@ -10,7 +10,7 @@
             type="search"
             name="search"
             class="h-14 w-full pl-10 pr-32 rounded-lg z-0 focus:shadow focus:outline-none"
-            placeholder="Search Jobs by Company Name/Job Title/Details/Tags/Location..." value="{{ request('search') }}" spellcheck="false"
+            placeholder="Search Jobs by Company Name, Job Title, Tags, or Location..." value="{{ request('search') }}" spellcheck="false"
         />
         <div class="absolute top-2 right-2">
             <button
