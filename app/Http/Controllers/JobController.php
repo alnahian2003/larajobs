@@ -16,7 +16,7 @@ class JobController extends Controller
     {
         return view('jobs.all', [
             'title' => 'All Jobs',
-            'jobs' => Job::latest()->filter(request(['tag']))->get(),
+            'jobs' => Job::latest()->filter(request(['tag', 'search']))->get(),
         ]);
     }
 
