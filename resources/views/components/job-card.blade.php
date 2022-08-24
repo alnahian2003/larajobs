@@ -14,8 +14,9 @@
 
             <x-tags :allTags="$job->tags"/>
 
-            <div class="text-lg mt-4">
-                <i class="fa-solid fa-location-dot"></i> {{ $job->location }}
+            <div class="text-lg mt-4 space-x-6">
+                <i class="fa-solid fa-location-dot text-slate-700"></i> {{ $job->location }}
+                <i class="fa-solid fa-clock text-slate-700"></i> {{ $job->created_at->diffForHumans() }}
             </div>
         </div>
     </div>

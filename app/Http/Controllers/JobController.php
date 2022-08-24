@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateNewJobRequest;
 use App\Models\Job;
 use Illuminate\Http\Request;
 
@@ -38,9 +39,14 @@ class JobController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateNewJobRequest $request)
     {
-        //
+        // For More Protection
+        $validated = $request->safe()->only(['title', 'company', 'description', 'location', 'website', 'logo', 'email', 'tags']);
+
+        Job::create($validated);
+
+        return redirect()->route('jobs.index');
     }
 
     /**

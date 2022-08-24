@@ -19,8 +19,9 @@
                         <h3 class="text-2xl mb-2">{{ $job->title }}</h3>
                         <div class="text-xl font-bold mb-4">{{ $job->company }}</div>
                         <x-tags :allTags="$job->tags"/>
-                        <div class="text-lg my-4">
+                        <div class="text-lg my-4 space-x-6">
                             <i class="fa-solid fa-location-dot"></i> {{ $job->location }}
+                            <i class="fa-solid fa-clock text-slate-700"></i> {{ $job->created_at->diffForHumans() }}
                         </div>
                         <div class="border border-gray-200 w-full mb-6"></div>
                         <div>
