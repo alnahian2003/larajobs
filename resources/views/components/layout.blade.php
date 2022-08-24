@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
     <title>{{$title ?? "Larajobs — Job Listing Platform Based in Dhaka"}}</title>
+
     <link rel="icon" href="{{asset('images/larajobs-logo.svg')}}" />
+
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -13,7 +16,8 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
     />
-    {{-- @vite('resources/js/app.js') --}}
+
+    {{--
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -25,7 +29,8 @@
                 },
             },
         };
-    </script>
+    </script> --}}
+    @vite('resources/js/app.js')
 </head>
 <body class="mb-48">
     <nav class="flex justify-between items-center p-3 mb-4">
@@ -64,7 +69,7 @@
             <p class="ml-2">Copyright &copy; Larajobs {{ date('Y') }}, All Rights reserved</p>
 
             <a
-                href="create.html"
+                href="{{route('jobs.create')}}"
                 class="absolute top-1/3 right-10 bg-black text-white py-2 px-5"
                 >Post Job</a
             >
