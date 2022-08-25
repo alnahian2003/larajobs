@@ -10,6 +10,15 @@
         
             <form action="{{route('jobs.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
+
+                <div class="mb-6">
+                    <label for="title" class="inline-block text-lg mb-2">Job Title</label>
+                    <input type="text" class="border border-gray-200 rounded p-2 w-full" name="title" placeholder="Example: Senior Laravel Developer" value="{{old('title')}}">
+                    @error('title')
+                        <p class="text-red-500 text-xs mt-1 font-semibold">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 <div class="mb-6">
                     <label for="company" class="inline-block text-lg mb-2">Company Name</label>
                     <input type="text" class="border border-gray-200 rounded p-2 w-full" name="company" placeholder="Wayne Enterprise, Marvel Studios" value="{{old('company')}}">
@@ -18,14 +27,6 @@
                         <p class="text-red-500 text-xs mt-1 font-semibold">{{ $message }}</p>
                     @enderror
 
-                </div>
-        
-                <div class="mb-6">
-                    <label for="title" class="inline-block text-lg mb-2">Job Title</label>
-                    <input type="text" class="border border-gray-200 rounded p-2 w-full" name="title" placeholder="Example: Senior Laravel Developer" value="{{old('title')}}">
-                    @error('title')
-                        <p class="text-red-500 text-xs mt-1 font-semibold">{{ $message }}</p>
-                    @enderror
                 </div>
         
                 <div class="mb-6">
