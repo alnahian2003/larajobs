@@ -54,6 +54,17 @@
                                     rounded-md bg-blue-500 text-white py-3 hover:opacity-80"
                                     ><i class="fa-solid fa-pen"></i> Edit This Job</a
                                 >
+
+                                {{-- Delete This Job Button --}}
+                                <form action="{{(route('jobs.destroy', $job->id))}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"class="block max-w-xs mx-auto px-8
+                                    rounded-md bg-red-500 text-white py-3 hover:opacity-80"
+                                    ><i class="fa-solid fa-pen"></i> Delete This Job?</button>
+                                   
+                                </form>
+                                
                             </div>
                         </div>
                     </div>
