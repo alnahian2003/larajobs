@@ -56,7 +56,7 @@
         
                 <div class="mb-6">
                     <label for="tags" class="inline-block text-lg mb-2">
-                        Tags (Comma Separated)
+                        Tags (Max 5 tags)
                     </label>
                     {{-- <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags" placeholder="Example: Laravel, Backend, Postgres, etc" value="{{old('tags')}}"> --}}
                     <x-tags-input :tagsValue="old('tags')"/>

@@ -10,7 +10,7 @@
       new Tagify(input,
       {
         originalInputValueFormat: valuesArr => valuesArr.map(item => item.value).join(','),
-        maxTags: 10,
+        maxTags: 5,
       }
       );
     </script>
