@@ -11,7 +11,7 @@
                         class="flex flex-col items-center justify-center text-center"
                     >
                         <img
-                            class="w-48 mr-6 mb-6"
+                            class="w-48 mr-6 mb-6 object-cover aspect-square"
                             src="{{ $job->logo ? asset('storage/'. $job->logo) : asset('images/larajobs-logo.svg') }}"
                             alt="{{ $job->title }}"
                         />
@@ -50,7 +50,6 @@
                                 {{-- Edit This Job Button --}}
                                 <a
                                     href="{{ route('jobs.edit', $job->id) }}"
-                                    target="_blank"
                                     class="block max-w-xs mx-auto px-8
                                     rounded-md bg-blue-500 text-white py-3 hover:opacity-80"
                                     ><i class="fa-solid fa-pen"></i> Edit This Job</a
@@ -60,4 +59,5 @@
                     </div>
                 </x-card>
             </div>
+        <x-flash-message/>
 </x-layout>

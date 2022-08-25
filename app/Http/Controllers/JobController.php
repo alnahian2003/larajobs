@@ -74,9 +74,12 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Job $job)
     {
-        //
+        return view('jobs.edit', [
+            'title' => 'Edit Job',
+            'job' => $job,
+        ]);
     }
 
     /**
@@ -86,9 +89,28 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Job $job)
     {
-        //
+        // For More Protection
+        $validated = $request->validate([
+            "title" => 'required|max:255',
+            'company' => 'required|max:255',
+            'description' => 'required',
+            'location' => 'required',
+            'website' => 'required|url',
+            'logo' => 'image|max:5120|mimes:jpg,png,jpeg',
+            'email' => 'required|email',
+            'tags' => 'required'
+        ]);
+
+        // Upload logo to file
+        if ($request->hasFile('logo')) {
+            $validated['logo'] = $request->file('logo')->store('logos', 'public');
+        }
+
+        $job->update($validated);
+
+        return redirect()->route('jobs.show', $job->id)->with('message', 'Job Updated Successfully!');
     }
 
     /**

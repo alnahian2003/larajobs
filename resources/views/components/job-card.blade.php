@@ -2,7 +2,7 @@
 <x-card>
     <div class="flex">
         <img
-            class="hidden w-48 mr-6 md:block"
+            class="hidden w-48 mr-6 md:block object-cover aspect-square"
             src="{{ $job->logo ? asset('storage/'. $job->logo) : asset('images/larajobs-logo.svg') }}"
             alt=""
         />
