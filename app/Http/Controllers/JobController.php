@@ -44,6 +44,11 @@ class JobController extends Controller
         // For More Protection
         $validated = $request->safe()->only(['title', 'company', 'description', 'location', 'website', 'logo', 'email', 'tags']);
 
+        // Upload logo to file
+        if ($request->hasFile('logo')) {
+            $validated['logo'] = $request->file('logo')->store('logos', 'public');
+        }
+
         Job::create($validated);
 
         return redirect()->route('jobs.index')->with('message', 'Job Posted Successfully!');
