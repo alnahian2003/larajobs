@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateNewJobRequest;
 use App\Models\Job;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class JobController extends Controller
 {
@@ -121,7 +122,16 @@ class JobController extends Controller
      */
     public function destroy(Job $job)
     {
+
+        // Delete the corresponding logo image as well to free some space
+        if (File::exists(public_path('storage/' . $job->logo))) {
+            File::delete(public_path('storage/' . $job->logo));
+        } else {
+            dd(public_path('storage/' . $job->logo));
+        }
+
         $job->delete();
+
         return redirect()->route('jobs.index')->with('message', 'Yay! Job Deleted 🥳');
     }
 }
