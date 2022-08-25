@@ -17,7 +17,7 @@
                         />
 
                         <h3 class="text-2xl mb-2">{{ $job->title }}</h3>
-                        <div class="text-xl font-bold mb-4">{{ $job->company }}</div>
+                        <div class="text-xl font-bold mb-4"><i class="fa-solid fa-building text-slate-700"></i> {{ $job->company }}</div>
                         <x-tags :allTags="$job->tags"/>
                         <div class="text-lg my-4 space-x-6">
                             <i class="fa-solid fa-location-dot"></i> {{ $job->location }}

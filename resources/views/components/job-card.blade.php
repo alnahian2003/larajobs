@@ -10,7 +10,9 @@
             <h3 class="text-2xl text-laravel font-bold">
                 <a href="jobs/{{$job->id}}">{{ $job->title }}</a>
             </h3>
-            <div class="text-xl text-slate-500 font-bold mb-4">{{ $job->company }}</div>
+            <div class="text-xl text-slate-500 font-bold mb-4">
+                <i class="fa-solid fa-building text-slate-700"></i> {{ $job->company }}
+            </div>
 
             <x-tags :allTags="$job->tags"/>
 
