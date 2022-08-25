@@ -28,7 +28,7 @@
                             <h3 class="text-3xl font-bold mb-4">
                                 Job Description
                             </h3>
-                            <div class="text-lg space-y-8">
+                            <div class="text-lg space-y-4">
                                 <p class="mb-8">{{ $job->description }}</p>
 
                                 <a
@@ -45,6 +45,15 @@
                                     rounded-md bg-slate-800 text-white py-3 hover:opacity-80"
                                     ><i class="fa-solid fa-globe"></i> Visit
                                     Website</a
+                                >
+
+                                {{-- Edit This Job Button --}}
+                                <a
+                                    href="{{ route('jobs.edit', $job->id) }}"
+                                    target="_blank"
+                                    class="block max-w-xs mx-auto px-8
+                                    rounded-md bg-blue-500 text-white py-3 hover:opacity-80"
+                                    ><i class="fa-solid fa-pen"></i> Edit This Job</a
                                 >
                             </div>
                         </div>
