@@ -1,7 +1,7 @@
 @props(['allTags'])
 
 @php
-    $tags = explode(', ', $allTags);
+    $tags = explode(',', $allTags);
 @endphp
 
 <ul class="flex">
