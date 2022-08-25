@@ -12,7 +12,7 @@
                     >
                         <img
                             class="w-48 mr-6 mb-6"
-                            src="{{asset('images/larajobs-logo.svg')}}"
+                            src="{{ $job->logo ? asset('storage/'. $job->logo) : asset('images/larajobs-logo.svg') }}"
                             alt="{{ $job->title }}"
                         />
 
