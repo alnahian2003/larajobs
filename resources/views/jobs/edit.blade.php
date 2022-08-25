@@ -57,10 +57,12 @@
         
                 <div class="mb-6">
                     <label for="tags" class="inline-block text-lg mb-2">
-                        Tags (Comma Separated)
+                        Tags
                     </label>
                     {{-- <x-add-tags/> --}}
-                    <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags" placeholder="Example: Laravel, Backend, Postgres, etc" value="{{$job->tags}}">
+                    {{-- <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags" placeholder="Example: Laravel, Backend, Postgres, etc" value="{{$job->tags}}"> --}}
+                    <x-tags-input/>
+                    
                     @error('tags')
                         <p class="text-red-500 text-xs mt-1 font-semibold">{{ $message }}</p>
                     @enderror
