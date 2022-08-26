@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource("jobs", JobController::class);
+Route::resource("jobs", JobController::class)->middleware('auth');
 
 // Authentication Routes
 Route::group(['as' => 'auth.'], function () {
@@ -28,7 +28,7 @@ Route::group(['as' => 'auth.'], function () {
         Route::get("login", 'index')->name('login');
         Route::post("login", 'login')->name('login_form');
 
-        Route::post("logout", 'logout')->name('logout');
+        Route::post("logout", 'logout')->name('logout')->middleware('auth');
     });
 });
 
