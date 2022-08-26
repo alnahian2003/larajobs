@@ -104,8 +104,13 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function logout(User $user)
     {
-        //
+        auth()->logout($user);
+        session()->invalidate();
+        session()->regenerate();
+        session()->regenerateToken();
+        
+        return redirect()->route('jobs.index')->with('message', 'Logged Out Successfully!');
     }
 }

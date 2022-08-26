@@ -26,7 +26,9 @@ Route::group(['as' => 'auth.'], function () {
         Route::post('register', 'register')->name('register');
 
         Route::get("login", 'index')->name('login');
-        Route::post("login", 'login')->name('login_form'); // method set to @show for now
+        Route::post("login", 'login')->name('login_form');
+
+        Route::post("logout", 'logout')->name('logout');
     });
 });
 

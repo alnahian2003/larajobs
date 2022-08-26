@@ -34,16 +34,11 @@
     @vite('resources/js/app.js')
 </head>
 <body class="mb-48">
-    <nav class="flex justify-between items-center p-3 mb-4">
+    <nav class="flex justify-between items-center p-3 py-5">
         <a href="/"
             ><img class="w-24" src="{{ asset('images/larajobs-trans.svg') }}" alt="Larajobs" class="logo"
         /></a>
         <ul class="flex space-x-6 mr-6 text-lg">
-
-            <li>
-                <a href="{{route('jobs.index')}}" class="hover:text-laravel">Jobs</a>
-            </li>
-
             @guest
             <li>
                 <a href="{{ route('auth.register_form') }}" class="hover:text-laravel"
@@ -57,6 +52,28 @@
                 >
             </li>
             @endguest
+
+            @auth
+            <li class="font-bold text-slate-700">
+                Welcome, {{auth()->user()->name}}!
+            </li>
+            <li>
+                <a href="#" class="hover:text-laravel">
+                    <i class="fa-solid fa-gear"></i> Manage Jobs</a>
+            </li>
+            <li>
+                <a href="#" class="hover:text-laravel">
+                    <i class="fa-solid fa-user"></i> Profile</a>
+            </li>
+
+            {{-- Logout --}}
+            <li>
+                <form action="{{route('auth.logout')}}" method="post">
+                    @csrf
+                    <button type="submit" class="text-gray-400 font-semibold"><i class="fa-solid fa-logout"></i> Logout?</button>
+                </form>
+            </li>
+            @endauth
         </ul>
     </nav>
 
@@ -69,11 +86,13 @@
         >
             <p class="ml-2">Copyright &copy; Larajobs {{ date('Y') }}, All Rights reserved</p>
 
+            @auth
             <a
                 href="{{route('jobs.create')}}"
                 class="absolute top-1/3 right-10 bg-slate-900 text-white py-2 px-5"
                 >Post a Job</a
             >
+            @endauth
         </footer>
 
         <x-flash-message/>
