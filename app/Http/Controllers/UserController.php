@@ -61,7 +61,17 @@ class UserController extends Controller
      */
     public function login(LoginFormRequest $request)
     {
-        //
+        $validated = $request->safe()->only(['email', 'password']);
+
+        // Attempt to login with safe values
+        if (auth()->attempt($validated)) {
+            session()->regenerate();
+            session()->regenerateToken();
+
+            return redirect()->route('jobs.index')->with('message', "You're now logged in 🥰");
+        }
+
+        return back()->withErrors(['email' => 'Invalid credentials provided'])->onlyInput('email');
     }
 
     /**
@@ -110,7 +120,7 @@ class UserController extends Controller
         session()->invalidate();
         session()->regenerate();
         session()->regenerateToken();
-        
-        return redirect()->route('jobs.index')->with('message', 'Logged Out Successfully!');
+
+        return redirect()->route('jobs.index')->with('message', 'You have been logged out! 😶');
     }
 }
