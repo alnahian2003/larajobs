@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\UserController;
 use App\Models\Job;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +17,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource("jobs", JobController::class);
+
+// Authentication Routes
+Route::group(['as' => 'auth.'], function () {
+    Route::controller(UserController::class)->group(function () {
+        Route::get("register", 'create')->name('register_form');
+        Route::post('register', 'register')->name('register');
+
+        Route::get("login", 'index')->name('login');
+        Route::post("login", 'login')->name('login_form'); // method set to @show for now
+    });
+});
+
+
+
 // Temporary Homepage Route
 Route::get('/', [JobController::class, 'index']);
-
-Route::resource("jobs", JobController::class);

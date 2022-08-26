@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :title="$title">
     <x-card class="p-10
     max-w-lg mx-auto mt-24">
             <header class="text-center">
