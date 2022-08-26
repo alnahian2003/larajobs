@@ -6,6 +6,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class RegisterFormRequest extends FormRequest
 {
+
+    protected $stopOnFirstFailure = true;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -13,7 +16,7 @@ class RegisterFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +27,9 @@ class RegisterFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "name" => "required|min:3",
+            "email" => "required|email|unique:users,email",
+            "password" => "required|confirmed|min:6",
         ];
     }
 }

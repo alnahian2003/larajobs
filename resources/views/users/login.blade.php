@@ -40,7 +40,7 @@
             <div class="mt-8">
                 <p>
                     Don't have an account?
-                    <a href="register.html" class="text-laravel">Register</a>
+                    <a href="{{route('auth.register_form')}}" class="text-laravel">Register</a>
                 </p>
             </div>
         </form>

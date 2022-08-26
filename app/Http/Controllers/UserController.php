@@ -41,7 +41,16 @@ class UserController extends Controller
      */
     public function register(RegisterFormRequest $request)
     {
-        //
+        $validated = $request->safe()->only(['name', 'email', 'password']);
+
+        // Hash the password
+        $validated['password'] = bcrypt($validated['password']);
+
+        // Create and login the user
+        $user = User::create($validated);
+        auth()->login($user, true);
+
+        return redirect()->route('jobs.index')->with('message', 'Account Created Successfully!');
     }
 
     /**
