@@ -56,6 +56,9 @@ class JobController extends Controller
             $validated['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
+        // Set the user_id column to the current auth user id
+        $validated['user_id'] = auth()->id();
+
         Job::create($validated);
 
         return redirect()->route('jobs.index')->with('message', 'Job Posted Successfully!');
