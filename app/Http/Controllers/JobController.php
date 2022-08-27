@@ -101,6 +101,11 @@ class JobController extends Controller
      */
     public function update(Request $request, Job $job)
     {
+        // Check if the real author making this request
+        if ($job->user_id !== auth()->id()) {
+            abort(401);
+        }
+
         // For More Protection
         $validated = $request->validate([
             "title" => 'required|max:255',
@@ -131,6 +136,10 @@ class JobController extends Controller
      */
     public function destroy(Job $job)
     {
+        // Check if the real author making this request
+        if ($job->user_id !== auth()->id()) {
+            abort(401);
+        }
 
         // Delete the corresponding logo image as well to free some space
         if (File::exists(public_path('storage/' . $job->logo))) {
