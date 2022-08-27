@@ -22,11 +22,13 @@ Route::resource("jobs", JobController::class)->middleware('auth');
 // Authentication Routes
 Route::group(['as' => 'auth.'], function () {
     Route::controller(UserController::class)->group(function () {
-        Route::get("register", 'create')->name('register_form');
-        Route::post('register', 'register')->name('register');
+        Route::middleware('guest')->group(function () {
+            Route::get("register", 'create')->name('register_form');
+            Route::post('register', 'register')->name('register');
 
-        Route::get("login", 'index')->name('login');
-        Route::post("login", 'login')->name('login_form');
+            Route::get("login", 'index')->name('login');
+            Route::post("login", 'login')->name('login_form');
+        });
 
         Route::post("logout", 'logout')->name('logout')->middleware('auth');
     });
