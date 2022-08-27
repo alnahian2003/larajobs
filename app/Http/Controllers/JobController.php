@@ -144,8 +144,6 @@ class JobController extends Controller
         // Delete the corresponding logo image as well to free some space
         if (File::exists(public_path('storage/' . $job->logo))) {
             File::delete(public_path('storage/' . $job->logo));
-        } else {
-            dd(public_path('storage/' . $job->logo));
         }
 
         $job->delete();
