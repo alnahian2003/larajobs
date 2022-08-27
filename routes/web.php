@@ -18,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Authenticated Users Can Navigate to Any Routes
-Route::resource("jobs", JobController::class)->middleware('auth')->except(['index', 'show']);
-// But Guests Can Only Visit Specified Routes
-Route::resource("jobs", JobController::class)->only(['index', 'show']);
+Route::resource("jobs", JobController::class);
 
 // Authentication Routes
 Route::group(['as' => 'auth.'], function () {
