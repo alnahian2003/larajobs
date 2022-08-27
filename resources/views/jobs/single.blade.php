@@ -46,6 +46,7 @@
                                     ><i class="fa-solid fa-globe"></i> Visit
                                     Website</a
                                 >
+                                @auth
 
                                 {{-- Edit This Job Button --}}
                                 <a
@@ -64,7 +65,8 @@
                                     ><i class="fa-solid fa-pen"></i> Delete This Job?</button>
                                    
                                 </form>
-                                
+                                    
+                                @endauth
                             </div>
                         </div>
                     </div>
