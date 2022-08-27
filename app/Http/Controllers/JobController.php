@@ -143,4 +143,17 @@ class JobController extends Controller
 
         return redirect()->route('jobs.index')->with('message', 'Yay! Job Deleted 🥳');
     }
+
+    /**
+     * Display page to manage authenticated user's jobs
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function manage()
+    {
+        return view("jobs.manage", [
+            "title" => 'Manage Your Jobs',
+            "jobs" => auth()->user()->jobs()->get(),
+        ]);
+    }
 }
