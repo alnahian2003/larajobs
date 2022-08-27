@@ -63,6 +63,12 @@ Start the local development server
 php artisan serve
 ```
 
+Start the vite to Asset Bundling (required)
+
+```
+npm run dev
+```
+
 You can now access the server at http://localhost:8000
 
 
@@ -87,6 +93,7 @@ php artisan storage:link
 php artisan migrate
 
 php artisan serve
+npm run dev
 ```
 
 Make sure you set the correct database connection information before running the migrations Environment variables
