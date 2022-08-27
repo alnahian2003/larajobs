@@ -1,64 +1,126 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://github.com/alnahian2003/larajobs" target="_blank"><img src="public/images/larajobs-trans.svg" width="300" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<p align="center"><a href="https://github.com/alnahian2003" target="_blank"><img src="screenshot.png" width="100%" height="auto" alt="Laravel Logo"></a></p>
 
-## About Laravel
+## Installation
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Please check the official laravel installation guide for server requirements before you start. [Official Documentation](https://laravel.com/docs/5.4/installation#installation)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Larajobs (Fictional Job Portal)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Larajobs is a micro job listing platform inspired by the [Brad Traversy's Laragigs project](https://youtu.be/MYyJ4PuL4pY).
 
-## Learning Laravel
+## Installation
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Please check the official laravel installation guide for server requirements before you start. [Official Documentation](https://laravel.com/docs/5.4/installation#installation)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Install my-project with npm
 
-## Laravel Sponsors
+```bash
+git clone https://github.com/alnahian2003/larajobs.git
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Switch to the repo folder
 
-### Premium Partners
+```
+cd larajobs
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Install all the dependencies using composer and npm
 
-## Contributing
+```
+composer install
+npm install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Copy the example env file and make the required configuration changes in the .env file
 
-## Code of Conduct
+```
+cp .env.example .env
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Generate a new application key
 
-## Security Vulnerabilities
+```
+php artisan key:generate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Create a symbolic link from `public/storage` to `storage/app/public`
 
-## License
+```
+php artisan storage:link
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Run the database migrations (Set the database connection in .env before migrating)
+
+```
+php artisan migrate
+```
+
+Start the local development server
+
+```
+php artisan serve
+```
+
+You can now access the server at http://localhost:8000
+
+
+### TL;DR command list
+
+```
+git clone https://github.com/alnahian2003/larajobs.git
+
+cd larajobs
+
+composer install
+
+npm install
+
+cp .env.example .env
+
+php artisan key:generate
+
+php artisan storage:link
+
+php artisan migrate
+
+php artisan serve
+```
+
+Make sure you set the correct database connection information before running the migrations Environment variables
+
+```
+php artisan migrate
+php artisan serve
+```
+
+## Database Seeding
+
+Populate the database with seed data with relationships which includes users and jobs. This can help you to quickly start testing the frontend and start using it with ready content.
+
+Run the database seeder and you're done
+
+```
+php artisan db:seed
+```
+
+Note : It's recommended to have a clean database before seeding. You can refresh your migrations at any point to clean the database by running the following command
+
+php artisan migrate:refresh
+
+## Tech Stack
+
+**Client:** TailwindCSS, AlpineJS
+
+**Server:** PHP, Laravel
+
+## Note
+
+Before giving this repo the name 'larajobs', I had no idea that a platform called Larajobs really does exists! So, I had no intention to steal their idea or something. It was just a random naming convention that popped outta my head from nowhere.
+
+Please don't call the cops, [Larajobs](https://larajobs.com) 😭 (Ah, yes, I'm kidding 😛)
+
+## Support
+
+For support, [contact me](https://alnahian2003.github.io#contact) or pull a issue.
