@@ -2,17 +2,13 @@
 
 <p align="center"><a href="https://github.com/alnahian2003" target="_blank"><img src="screenshot.png" width="100%" height="auto" alt="Laravel Logo"></a></p>
 
-## Installation
-
-Please check the official laravel installation guide for server requirements before you start. [Official Documentation](https://laravel.com/docs/5.4/installation#installation)
-
 # Larajobs (Fictional Job Portal)
 
-Larajobs is a micro job listing platform inspired by the [Brad Traversy's Laragigs project](https://youtu.be/MYyJ4PuL4pY).
+Larajobs is a very simple micro job listing platform inspired by the [Brad Traversy's Laragigs project](https://youtu.be/MYyJ4PuL4pY).
 
 ## Installation
 
-Please check the official laravel installation guide for server requirements before you start. [Official Documentation](https://laravel.com/docs/5.4/installation#installation)
+Please check the official laravel installation guide for server requirements before you start. [Official Documentation](https://laravel.com/docs/master/installation)
 
 Install my-project with npm
 
@@ -30,6 +26,8 @@ Install all the dependencies using composer and npm
 
 ```
 composer install
+```
+```
 npm install
 ```
 
@@ -63,7 +61,7 @@ Start the local development server
 php artisan serve
 ```
 
-Start the vite to Asset Bundling (required)
+Start Vite for bundling the assets (required)
 
 ```
 npm run dev
@@ -71,8 +69,8 @@ npm run dev
 
 You can now access the server at http://localhost:8000
 
-
 ### TL;DR
+
 Command list
 
 ```

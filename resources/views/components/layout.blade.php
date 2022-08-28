@@ -17,20 +17,6 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
     />
-
-    {{--
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        laravel: "#6e7bff",
-                    },
-                },
-            },
-        };
-    </script> --}}
     @vite('resources/js/app.js')
 </head>
 <body class="mb-48">
