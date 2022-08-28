@@ -66,9 +66,8 @@ class UserController extends Controller
         // Attempt to login with safe values
         if (auth()->attempt($validated)) {
             session()->regenerate();
-            session()->regenerateToken();
 
-            return redirect()->intended('jobs.index')->with('message', "You're now logged in 🥰");
+            return redirect()->intended('/')->with('message', "You're now logged in 🥰");
         }
 
         return back()->withErrors(['email' => 'Invalid credentials provided'])->onlyInput('email');
