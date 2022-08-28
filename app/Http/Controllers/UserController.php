@@ -62,9 +62,10 @@ class UserController extends Controller
     public function login(LoginFormRequest $request)
     {
         $validated = $request->safe()->only(['email', 'password']);
+        $remember = request()->has('remember') ? true : false;
 
         // Attempt to login with safe values
-        if (auth()->attempt($validated)) {
+        if (auth()->attempt($validated, $remember)) {
             session()->regenerate();
 
             return redirect()->intended('/')->with('message', "You're now logged in 🥰");

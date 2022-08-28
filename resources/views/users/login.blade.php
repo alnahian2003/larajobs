@@ -31,6 +31,11 @@
                 @enderror
             </div>
 
+            <div class="flex items-center mb-6">
+                <input id="default-checkbox" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-laravel" name="remember" @if(old('remember'))checked @endif>
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-700">Remember me?</label>
+            </div>
+
             <div class="mb-6">
                 <button type="submit" class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
                     Sign In
