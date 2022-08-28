@@ -71,34 +71,45 @@ You can now access the server at http://localhost:8000
 
 ### TL;DR
 
-Command list
+All command list
 
-```
+```bash
 git clone https://github.com/alnahian2003/larajobs.git
-
+```
+```
 cd larajobs
+```
 
+```
 composer install
+```
 
+```
 npm install
+```
 
+```
 cp .env.example .env
+```
 
+```
 php artisan key:generate
+```
 
+```
 php artisan storage:link
+```
 
+```
 php artisan migrate
+```
 
+```
 php artisan serve
+```
+
+```
 npm run dev
-```
-
-Make sure you set the correct database connection information before running the migrations Environment variables
-
-```
-php artisan migrate
-php artisan serve
 ```
 
 ## Database Seeding
