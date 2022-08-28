@@ -119,6 +119,7 @@ class UserController extends Controller
         auth()->logout($user);
         session()->invalidate();
         session()->regenerate();
+        session()->regenerateToken();
 
         return redirect()->route('jobs.index')->with('message', 'You have been logged out! 😶');
     }
