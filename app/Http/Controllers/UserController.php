@@ -68,7 +68,7 @@ class UserController extends Controller
             session()->regenerate();
             session()->regenerateToken();
 
-            return redirect()->route('jobs.index')->with('message', "You're now logged in 🥰");
+            return redirect()->intended('jobs.index')->with('message', "You're now logged in 🥰");
         }
 
         return back()->withErrors(['email' => 'Invalid credentials provided'])->onlyInput('email');
